@@ -1,0 +1,18 @@
+# Binary executable
+# This is the compiled application. We don't want to commit this to Git.
+api
+
+# Environment file
+# This file contains secrets and should NEVER be committed to version control.
+.env
+
+# OS-specific files
+.DS_Store
+*.pem
+
+# IDE-specific folders
+.idea/
+.vscode/
+
+# Log files
+*.log
