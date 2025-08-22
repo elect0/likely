@@ -2,13 +2,13 @@
 
 ### A real-time "Who's More Likely To" party game.
 
-\<p align="center"\>
-\<img src="[https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge\&logo=go](https://www.google.com/search?q=https://img.shields.io/badge/Go-1.22%2B-00ADD8%3Fstyle%3Dfor-the-badge%26logo%3Dgo)" alt="Go Version"\>
-\<img src="[https://img.shields.io/badge/SvelteKit-4.0+-FF3E00?style=for-the-badge\&logo=svelte](https://www.google.com/search?q=https://img.shields.io/badge/SvelteKit-4.0%2B-FF3E00%3Fstyle%3Dfor-the-badge%26logo%3Dsvelte)" alt="SvelteKit Version"\>
-\<img src="[https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge\&logo=postgresql](https://www.google.com/search?q=https://img.shields.io/badge/PostgreSQL-16-336791%3Fstyle%3Dfor-the-badge%26logo%3Dpostgresql)" alt="PostgreSQL"\>
-\<img src="[https://img.shields.io/badge/Redis-7.2-DC382D?style=for-the-badge\&logo=redis](https://www.google.com/search?q=https://img.shields.io/badge/Redis-7.2-DC382D%3Fstyle%3Dfor-the-badge%26logo%3Dredis)" alt="Redis"\>
-\<img src="[https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/License-MIT-yellow.svg%3Fstyle%3Dfor-the-badge)" alt="License: MIT"\>
-\</p\>
+<p align="center">
+<img src="https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go" alt="Go Version">
+<img src="https://img.shields.io/badge/SvelteKit-4.0+-FF3E00?style=for-the-badge&logo=svelte" alt="SvelteKit Version">
+<img src="https://img.shields.io/badge/PostgreSQL-17-336791?style=for-the-badge&logo=postgresql" alt="PostgreSQL">
+<img src="https://img.shields.io/badge/Redis-7.2-DC382D?style=for-the-badge&logo=redis" alt="Redis">
+<img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License: MIT">
+</p>
 
 **Likely** is a multiplayer web game where friends can join a private room and vote on who is "more likely to" do something based on daily, AI-generated questions. It features live result updates and a group chat, all powered by a high-performance Go backend designed for speed and scalability.
 
