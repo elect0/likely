@@ -3,8 +3,11 @@ package main
 import (
 	"log"
 	"os"
+	"time"
 
+	"github.com/elect0/likely/internal/handler"
 	"github.com/elect0/likely/internal/repository"
+	"github.com/elect0/likely/internal/service"
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 )
@@ -29,16 +32,29 @@ func main() {
 
 	defer db.Close()
 
-	redisAddr := os.Getenv("REDIS_ADDR")
-	redisClient, err := repository.NewRedisClient(redisAddr)
-	if err != nil {
-		log.Fatalf("Could not connect to Redis: %v", err)
-	}
+	// redis
+	// redisAddr := os.Getenv("REDIS_ADDR")
+	// redisClient, err := repository.NewRedisClient(redisAddr)
+	// if err != nil {
+	// 	log.Fatalf("Could not connect to Redis: %v", err)
+	// }
 
-	defer redisClient.Close()
+	// defer redisClient.Close()
+
+	userRepo := repository.NewPostgresRepository(db)
+
+	jwtSecret := os.Getenv("JWT_SECRET")
+	tokenTTL := time.Hour * 24
+	userService := service.NewUserService(userRepo, jwtSecret, tokenTTL)
+
+	httpHandler := handler.NewHTTPHandler(userService)
 
 	e := echo.New()
 
+	// e.Use(middleware.Logger())
+	// e.Use(middleware.Recover())
+
+	httpHandler.RegisterRoutes(e)
 	e.GET("/ping", func(c echo.Context) error {
 		return c.String(200, "pong")
 	})

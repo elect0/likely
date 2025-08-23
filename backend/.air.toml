@@ -1,0 +1,21 @@
+# .air.toml
+
+# Working directory (root of project)
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Path to your main.go
+cmd = "go build -o ./tmp/main ./cmd/server"
+
+# Binary name (where Air will run it from)
+bin = "tmp/main"
+
+# Watch files with these extensions
+include_ext = ["go", "tpl", "tmpl", "html"]
+
+# Exclude some directories
+exclude_dir = ["assets", "tmp", "vendor", "node_modules"]
+
+[log]
+time = true
