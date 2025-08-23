@@ -53,3 +53,18 @@ func (r *PostgresRepository) CreateUser(ctx context.Context, user *domain.User) 
 
 	return &createdUser, nil
 }
+
+func (r *PostgresRepository) GetUserByEmail(ctx context.Context, email string) (*domain.User, error) {
+	query := "SELECT * FROM users WHERE email = $1"
+
+	var user domain.User
+
+	err := r.db.GetContext(ctx, &user, query, email)
+
+	if err != nil {
+		return nil, fmt.Errorf("failed to get user by email: %w", err)
+	}
+
+	return &user, nil
+
+}

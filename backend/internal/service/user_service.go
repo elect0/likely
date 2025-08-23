@@ -70,6 +70,26 @@ func (s *UserService) SignUp(ctx context.Context, name, email, password string) 
 	return createdUser, token, nil
 }
 
+func (s *UserService) SignIn(ctx context.Context, email, password string) (*domain.User, string, error) {
+	user, err := s.userRepo.GetUserByEmail(ctx, email)
+	if err != nil {
+		return nil, "", fmt.Errorf("failed to get user by email: %w", err)
+	}
+
+	if err := bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(password)); err != nil {
+		return nil, "", fmt.Errorf("invalid password: %w", err)
+	}
+
+	token, err := s.generateJWT(user.Id)
+
+	if err != nil {
+		return nil, "", fmt.Errorf("failed to generate token: %w", err)
+	}
+
+	return user, token, nil
+
+}
+
 func (s *UserService) generateJWT(userId uuid.UUID) (string, error) {
 	claims := jwt.MapClaims{
 		"sub": userId.String(),
